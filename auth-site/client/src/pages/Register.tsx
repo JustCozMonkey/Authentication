@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-
+import { useState } from 'react'
+import axios from "axios"
 
 
 const Register = () => {
@@ -7,9 +7,13 @@ const Register = () => {
     const [email, setEmail] = useState<string>("")
     const [password, setPass] = useState<string>("")
 
-    const submitHandler = (e: { preventDefault: () => void }) => {
+    const submitHandler = async (e: { preventDefault: () => void }) => {
         e.preventDefault();
-        console.log({ name, email, password })
+        try {
+            await axios.post("http://localhost:8000/auth/register", { name, email, password });
+        } catch (err) {
+            alert("Register failed");
+        }
     }
     return (
         <div className='bg-blue-300 w-11/12 sm:w-160 px-8 py-16 rounded-tl-3xl rounded-br-3xl hover:shadow-2xl'>
@@ -44,7 +48,7 @@ const Register = () => {
                         onChange={(e) => setPass(e.target.value)}
                     />
                 </label>
-                <button className='bg-blue-400 w-1/4 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition' type='submit'>Submit</button>
+                <button className='bg-blue-400 w-1/2 sm:w-1/4 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition' type='submit'>Submit</button>
             </form>
         </div>
 

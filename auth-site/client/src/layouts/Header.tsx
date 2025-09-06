@@ -33,7 +33,7 @@ const Header = () => {
             {signShow &&
                 <div className='hidden sm:flex flex-col bg-blue-400 absolute right-0 top-full' onMouseEnter={() => setSignShow(true)} onMouseLeave={() => setSignShow(false)} >
                     <Link className='px-3 hover:bg-blue-500 h-8' to={"/signin"}>Sign In</Link>
-                    <Link className='px-3 hover:bg-blue-500 h-8' to={"/registration"}>Registration</Link>
+                    <Link className='px-3 hover:bg-blue-500 h-8' to={"/register"}>Registration</Link>
                 </div>
             }
         </header>

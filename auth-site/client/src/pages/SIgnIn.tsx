@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -35,10 +35,10 @@ const SIgnIn = () => {
                         onChange={(e) => setPass(e.target.value)}
                     />
                 </label>
-                <button className='bg-blue-400 w-1/4 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition' type='submit'>Submit</button>
+                <button className='bg-blue-400 w-1/2 sm:w-1/4 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition' type='submit'>Submit</button>
             </form>
             <p className='text-2xl mt-6 font-bold'>New Customers</p>
-            <p className='text-lg mt-3'>If you don’t have an account yet, you can <Link className='text-red-100 hover:text-red-600' to={"/registration"}>create an account</Link> here.</p>
+            <p className='text-lg mt-3'>If you don’t have an account yet, you can <Link className='text-red-100 hover:text-red-600' to={"/register"}>create an account</Link> here.</p>
         </div>
     )
 }
