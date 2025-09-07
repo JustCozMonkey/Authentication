@@ -7,16 +7,19 @@ import { useNavigate } from 'react-router-dom'
 const SIgnIn = () => {
     const [email, setEmail] = useState<string>("")
     const [password, setPass] = useState<string>("")
+    const [message, setMessage] = useState<string>("")
 
     const navigate = useNavigate()
 
     const submitHandler = async (e: { preventDefault: () => void }) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:8000/auth/signin", { email, password })
-            navigate("/")
-        } catch (err) {
-            alert("Sign in failed");
+            const res = await axios.post("http://localhost:8000/auth/signin", { email, password }, { withCredentials: true })
+            setMessage(res.data.message)
+
+            //navigate("/")
+        } catch (err: any) {
+            setMessage(err.response?.data?.message || "Login Error")
         }
 
     }
@@ -47,6 +50,7 @@ const SIgnIn = () => {
                 </label>
                 <button className='bg-blue-400 w-1/2 sm:w-1/4 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition' type='submit'>Submit</button>
             </form>
+            <p className='text-lg my-3 '>{message}</p>
             <p className='text-2xl mt-6 font-bold'>New Customers</p>
             <p className='text-lg mt-3'>If you don’t have an account yet, you can <Link className='text-red-100 hover:text-red-600' to={"/register"}>create an account</Link> here.</p>
         </div>
