@@ -28,7 +28,7 @@ app.use(session({
         httpOnly: true,
         secure: false,
         sameSite: 'lax',
-        maxAge: 1000 * 60
+        maxAge: 1000 * 60 * 60
     }
 }))
 

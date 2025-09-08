@@ -17,7 +17,7 @@ const Register = () => {
     }
     return (
         <div className='flex w-full h-screen justify-center items-center'>
-            <div className='bg-blue-300 w-11/12 sm:w-160 px-8 py-16 rounded-tl-3xl rounded-br-3xl hover:shadow-2xl'>
+            <div className='bg-gray-300 border-4 border-red-800 w-11/12 sm:w-160 px-8 py-16 rounded-tl-3xl rounded-br-3xl hover:shadow-2xl'>
                 <p className='mb-6 text-3xl text-center font-mono font-bold'>
                     Create New Account
                 </p>
@@ -49,7 +49,7 @@ const Register = () => {
                             onChange={(e) => setPass(e.target.value)}
                         />
                     </label>
-                    <button className='bg-blue-400 w-1/2 sm:w-1/4 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition' type='submit'>Submit</button>
+                    <button className='bg-yellow-400 w-1/2 sm:w-1/4 text-black font-semibold py-2 rounded-lg hover:bg-yellow-600 transition' type='submit'>Submit</button>
                 </form>
             </div>
         </div>
