@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
 import authRouter from "./src/routes/authRouter.js"
+import productRouter from "./src/routes/productRouter.js"
 import session from 'express-session'
 
 import dotenv from "dotenv"
@@ -27,11 +28,12 @@ app.use(session({
         httpOnly: true,
         secure: false,
         sameSite: 'lax',
-        maxAge: 1000 * 60 * 60
+        maxAge: 1000 * 60
     }
 }))
 
 app.use("/auth", authRouter)
+app.use("/products", productRouter)
 
 mongoose.connect(MONGOURL).then(async () => {
     console.log("connected")

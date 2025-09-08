@@ -18,7 +18,7 @@ const Header = () => {
             if (sessionName) setName(sessionName)
         }
         init()
-    },)
+    }, [name])
 
     return (
 
